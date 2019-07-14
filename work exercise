@@ -1,3 +1,4 @@
+Question 1
 Create a program that asks the user to enter their name and their age. Print out a message addressed to them that tells them the year that they will turn 100 years old.
 
 name = input("Enter your name: ")
@@ -9,3 +10,133 @@ print(name + " you will turn 100 years old in " + str(future_year) + " years tim
 #data from input() function is string even if the data is a number.
 #To do arithmetic calculation, the number needs to be converted to integer using int.
 #We can only add strings (concatenation) and not string and integer.
+
+Question2
+Ask the user for a number. Depending on whether the number is even or odd, print out an appropriate message to the user.
+
+num = input("Enter a number: ")
+if int(num) % 2 == 0:
+    print(num + " is an even number.")
+else:
+    print(num + " is an odd number.")
+    
+    Question 3
+    Take a list, say for example this one:
+
+  a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+and write a program that prints out all the elements of the list that are less than 5.
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+for num in a:
+    if num < 5:
+        print(num)
+        
+Question 4
+Create a program that asks the user for a number and then prints out a list of all the divisors of that number.
+
+num = int(input("Enter a number: "))
+
+range_of_list = range(1,num+1)
+list_of_divisors = []
+
+for number in range_of_list:
+    if num % number == 0:
+        list_of_divisors.append(number)
+        
+print(list_of_divisors)
+
+Question 5
+Take two lists, say for example these two:
+
+  a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+  b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+and write a program that returns a list that contains only the elements that are common between the lists (without duplicates). Make sure your program works on two lists of different sizes.
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+list_of_common_numbers = []
+
+for num in b:
+    if num in a:
+        list_of_common_numbers.append(num)
+
+print(list_of_common_numbers)
+
+#If statement also search for elemnts in a different list.
+
+Question 6
+Ask the user for a string and print out whether this string is a palindrome or not. (A palindrome is a string that reads the same forwards and backwards.)
+
+name = input("Enter the name of an animal: ")
+
+reverse = name[::-1]
+print(reverse)
+if name == reverse:
+    print("This name is a palindrome")
+else:
+    print("This name is not a palindrome")
+#[:] use this to read all the elemnts in a list
+#[::2] use this to count how often you read the elements in a list moving forward.
+#[::-1] use this to count how often you read the elements in a list moving backward.
+
+Question 7
+Let’s say I give you a list saved in a variable: a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]. Write one line of Python that takes this list a and makes a new list that has only the even elements of this list in it.
+
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+list_of_even_num = []
+for num in a:
+    if num % 2 == 0:
+        list_of_even_num.append(num)
+
+print(list_of_even_num)
+
+#To write the same code in one line of python,
+
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+list_of_even_num = [num for num in a if num % 2 ==0]
+
+print(list_of_even_num)
+
+Question 8
+Generate a random number between 1 and 9 (including 1 and 9). Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right.
+
+import random
+
+random_num = random.randint(1,9)
+guess_num = int(input("Enter a guess number: "))
+
+if guess_num == random_num:
+    print("You guessed exactly right.")
+    
+elif guess_num > random_num:
+    print("You guessed too high.")
+    
+else:
+    print("You guessed too low.")
+    
+Question 9
+Generate two lists of random numbers and write a program that returns a list that contains only the elements that are common between the lists (without duplicates). Make sure your program works on two lists of different sizes. Write this using at least one list comprehension.
+
+import random
+
+a = random.sample(range(1, 90),12)
+print(a)
+b = random.sample(range(1, 90),14)
+print(b)
+
+list_of_common_num = [num for num in b if num in a]
+
+print(list_of_common_num)
+
+Question 10
+Write a password generator in Python. Be creative with how you generate passwords - strong passwords have a mix of lowercase letters, uppercase letters, numbers, and symbols. The passwords should be random, generating a new password every time the user asks for a new password.
+
+import random
+
+samp = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()?"
+passw = " ".join(random.sample(samp, 8))
+print(passw)
+
+Question 11
