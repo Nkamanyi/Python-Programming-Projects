@@ -459,4 +459,186 @@ def SimpleSymbols(str):
 print(SimpleSymbols("+d+=3=+s+"))
 
 Question 36
+Complete the solution so that it reverses all of the words within the string passed in.
+
+def reverseWords(str):
+    return " ".join(reversed(str.split()))
+
+print(reverseWords("Coding is exciting"))
+
+or
+
+def reverseWords(str):
+    return " ".join(str.split()[::-1])
+
+print(reverseWords("The lord is good"))
+
+Question 37
+Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+
+def reverse_words(text):
+    return " ".join(i[::-1] for i in text.split(" "))
+
+
+print(reverse_words("The lord is good"))
+
+Questin 38
+You need to write a function that reverses the words in a given string. A word can also fit an empty string.
+
+def reverse(st):
+   return " ".join(st.split()[::-1])
+   
+print(st("The lord is good"))
+
+Question 39
+Impliment the reverse function, which takes in input n and reverses it. For instance, reverse(123) should return 321. You should do this without converting the inputted number into a string.
+
+def reverse(n):
+    return int(str(n)[::-1])
+print(reverse(123))
+
+Question 40
+Find the nearest square number, nearest_sq(n), of a positive integer n.
+
+def nearest_sq(n):
+    return round(n ** 0.5) ** 2
+print(nearest_sq())
+
+Question 41
+Create a method is_uppercase() to see whether the string is ALL CAPS.
+
+def is_uppercase(inp):
+    return inp.isupper()
+    
+print(is_uppercase("The Lord is good"))
+
+Question 42
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
+
+def square_sum(numbers):
+    return sum(num ** 2 for num in numbers)
+
+print(square_sum([1, 2, 7, 10, 2]))
+
+Question 43
+Given a number n, return the number of positive odd numbers below n.
+
+def odd_count(n):
+    return len(range(n)[1::2])
+    
+print(oddCount())
+
+Question 44
+There was a test in your class and you passed it. Congratulations!
+But you're an ambitious person. You want to know if you're better than the average student in your class.
+You receive an array with your peers' test scores. Now calculate the average and compare your score!
+
+Return True if you're better, else False!
+
+Note:
+Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+
+import statistics
+
+def better_than_average(class_points, your_points):
+    return your_points > statistics.mean(class_points)
+
+print(better_than_average([12, 23, 34, 45, 56, 67, 78, 89, 90], 69))
+
+or   
+
+def better_than_average(class_points, your_points):
+    return your_points > sum(class_points) / len(class_points)
+    
+print(better_than_average([12, 23, 34, 45, 56, 67, 78, 89, 90], 69))
+
+Question 45
+Write a method smash that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+
+def smash(words):
+    return " ".join(words)
+    
+print(smash(['hello', 'world', 'this', 'is', 'great']))
+
+Question 46
+Our football team finished the championship. The result of each match look like "x:y". Results of all matches are recorded in the collection.
+
+For example: ["3:1", "2:2", "0:1", ...]
+
+Write a function that takes such collection and counts the points of our team in the championship. Rules for counting points for each match:
+
+if x>y - 3 points
+if x<y - 0 point
+if x=y - 1 point
+Notes:
+
+there are 10 matches in the championship
+0 <= x <= 4
+0 <= y <= 4
+
+def points(games):
+    count = 0
+    for score in games:
+        res = score.split(':')
+        if res[0]>res[1]:
+            count += 3
+        elif res[0] == res[1]:
+            count += 1
+    return count
+print(point(["3:1", "2:2", "0:1"]))
+
+Question 47
+We need a function that can transform a string into a number. What ways of achieving this do you know?
+
+def string_to_number(s):
+    return int(s)
+    
+print(string_to_numbers("123"))
+
+Question 48
+Suzuki is a monk who climbs a large staircase to the monastery as part of a ritual. Some days he climbs more stairs than others depending on the number of students he must train in the morning. He is curious how many stairs might be climbed over the next 20 years and has spent a year marking down his daily progress.
+
+The sum of all the stairs logged in a year will be used for estimating the number he might climb in 20.
+
+20_year_estimate = one_year_total * 20
+
+You will receive the following data structure representing the stairs Suzuki logged in a year. You will have all data for the entire year so regardless of how it is logged the problem should be simple to solve.
+
+stairs = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
+Make sure your solution takes into account all of the nesting within the stairs array.
+
+Each weekday in the stairs array is an array.
+
+sunday = [6737, 7244, 5776, 9826, 7057, 9247, 5842, 5484, 6543, 5153, 6832, 8274, 7148, 6152, 5940, 8040, 9174, 7555, 7682, 5252, 8793, 8837, 7320, 8478, 6063, 5751, 9716, 5085, 7315, 7859, 6628, 5425, 6331, 7097, 6249, 8381, 5936, 8496, 6934, 8347, 7036, 6421, 6510, 5821, 8602, 5312, 7836, 8032, 9871, 5990, 6309, 7825]
+Your function should return the 20 year estimate of the stairs climbed using the formula above.
+
+def stairs_in_20(stairs):
+    total = 0
+    for day in stairs:
+        for num in day:
+            total += num
+    return total * 20
+    
+print(stairs_in_20())
+
+or 
+
+def stairs_in_20(stairs):
+    return sum(sum(day) for day in stairs) * 20
+
+print(stairs_in_20())
+
+Question 49
+
+def expression_matter(a, b, c):
+    return max(a*b*c, a+b+c, (a+b)*c, a*(b+c))
+   
+print(expression_matter(1,2,3))
+
+or 
+
+def expression_matter(a, b, c): return max(a*b*c, a+b+c, a*(b+c), (a+b)*c)
+
+print(expression_matter(1,2,3))
 
