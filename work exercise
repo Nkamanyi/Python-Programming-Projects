@@ -8,7 +8,7 @@ future_year = 100 - age
 print(name + " you will turn 100 years old in " + str(future_year) + " years time.")
 
 #data from input() function is string even if the data is a number.
-#To do arithmetic calculation, the number needs to be converted to integer using int.
+#To do arithmetic calculation, the number needs to be converted to integer using int().
 #We can only add strings (concatenation) and not string and integer.
 
 Question2
@@ -20,8 +20,8 @@ if int(num) % 2 == 0:
 else:
     print(num + " is an odd number.")
     
-    Question 3
-    Take a list, say for example this one:
+Question 3
+Take a list, say for example this one:
 
   a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 and write a program that prints out all the elements of the list that are less than 5.
@@ -63,7 +63,7 @@ for num in b:
 
 print(list_of_common_numbers)
 
-#If statement also search for elemnts in a different list.
+# If statement also search for elemnts in a different list.
 
 Question 6
 Ask the user for a string and print out whether this string is a palindrome or not. (A palindrome is a string that reads the same forwards and backwards.)
@@ -73,9 +73,9 @@ name = input("Enter the name of an animal: ")
 reverse = name[::-1]
 print(reverse)
 if name == reverse:
-    print("This name is a palindrome")
+    print(name + "is a palindrome")
 else:
-    print("This name is not a palindrome")
+    print(name + "is not a palindrome")
 #[:] use this to read all the elemnts in a list
 #[::2] use this to count how often you read the elements in a list moving forward.
 #[::-1] use this to count how often you read the elements in a list moving backward.
@@ -140,7 +140,7 @@ passw = " ".join(random.sample(samp, 8))
 print(passw)
 
 Question 11
-The price of a house is $1M. If the buyer has good credit,t hey need to put down 10% otherwise, they need to put down 20%. Print the down payment.
+The price of a house is $1M. If the buyer has good credit,t he needs to put down 10% otherwise, they need to put down 20%. Print the down payment.
 
 good_credit = True
 down_payment1 = str(1000000 * 0.1)
@@ -191,7 +191,6 @@ else:
     
 Question 15
 Car game
-
 
 message = ""
 started = False
@@ -303,12 +302,11 @@ anti vowel
 
 def anti_vowel(text):
     result = ""
-    vowels = "ieaouIEAOU"
     for char in text:
-          if char not in vowels:
+          if char not in "ieaouIEAOU":
             result += char
     return result
-print anti_vowel("hello book")
+print(anti_vowel("hello book"))
 
 Question 24
 count 
@@ -340,10 +338,10 @@ product
 def product(list):
   total = 1
   for num in list:
-    total = total * num
+    total *= num
   return total
 
-print product([4, 5, 5])
+print(product([4, 5, 5]))
 
 Question 27
 median of a list
@@ -361,7 +359,7 @@ def median(lst):
         mean = (sorted_list[index_1] + sorted_list[index_2])/2.0
         return mean
    
-print median([2, 4, 5, 9])
+print(median([2, 4, 5, 9]))
 
 Question 28
 Add the numbers in a list
@@ -406,7 +404,7 @@ def SimpleAdding(num):
     return total
 
     
-print SimpleAdding(raw_input())  
+print(SimpleAdding(raw_input())  
 
 Question 32
 Capitalize the first letter of each wordin a string
@@ -415,13 +413,6 @@ def LetterCapitalize(str):
     
     return " ".join([i.capitalize() for i in str.split()])
 
-print LetterCapitalize(raw_input())
-
-or  
-
-def LetterCapitalize(s): 
-    return s.title()
-    
 print LetterCapitalize(raw_input())
 
 Question 33
