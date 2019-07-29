@@ -473,6 +473,8 @@ def reverseWords(str):
 
 print(reverseWords("The lord is good"))
 
+# The split() does not work with integers but only with strings. For a single text/word or number of string the split() function gives the same string, for a sentence of words or group/list of numbers, the split() function split them up.
+
 Question 37
 Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
 
@@ -498,13 +500,30 @@ def reverse(n):
 print(reverse(123))
 
 Question 40
+Complete the solution so that it reverses the string value passed into it.
+
+def solution(str):
+  return str[::-1]
+  
+print(solution("world"))
+
+Question 41
 Find the nearest square number, nearest_sq(n), of a positive integer n.
 
 def nearest_sq(n):
     return round(n ** 0.5) ** 2
 print(nearest_sq())
 
-Question 41
+or
+
+def nearest_sq(n):
+    import math
+    m = round(math.sqrt(n))
+    return m * m
+    
+print(nearest_sq())
+
+Question 42
 Create a method is_uppercase() to see whether the string is ALL CAPS.
 
 def is_uppercase(inp):
@@ -512,7 +531,17 @@ def is_uppercase(inp):
     
 print(is_uppercase("The Lord is good"))
 
-Question 42
+or
+
+def is_uppercase(inp):
+  if inp.isupper():
+    return True
+  else:
+    return False
+
+print(is_uppercase("The Lord is good"))
+
+Question 43
 Complete the square sum function so that it squares each number passed into it and then sums the results together.
 For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
 
@@ -521,7 +550,17 @@ def square_sum(numbers):
 
 print(square_sum([1, 2, 7, 10, 2]))
 
-Question 43
+or 
+
+def square_sum(numbers):
+  sum = 0
+  for num in numbers:
+       sum += num ** 2
+  return sum
+  
+print(square_sum([1, 2, 7, 10, 2]))
+
+Question 44
 Given a number n, return the number of positive odd numbers below n.
 
 def odd_count(n):
@@ -529,7 +568,14 @@ def odd_count(n):
     
 print(oddCount())
 
-Question 44
+or 
+
+def oddCount(n):
+    return n // 2
+    
+print(oddCount())
+
+Question 45
 There was a test in your class and you passed it. Congratulations!
 But you're an ambitious person. You want to know if you're better than the average student in your class.
 You receive an array with your peers' test scores. Now calculate the average and compare your score!
@@ -553,7 +599,7 @@ def better_than_average(class_points, your_points):
     
 print(better_than_average([12, 23, 34, 45, 56, 67, 78, 89, 90], 69))
 
-Question 45
+Question 46
 Write a method smash that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
 
 def smash(words):
@@ -561,7 +607,7 @@ def smash(words):
     
 print(smash(['hello', 'world', 'this', 'is', 'great']))
 
-Question 46
+Question 47
 Our football team finished the championship. The result of each match look like "x:y". Results of all matches are recorded in the collection.
 
 For example: ["3:1", "2:2", "0:1", ...]
@@ -588,7 +634,14 @@ def points(games):
     return count
 print(point(["3:1", "2:2", "0:1"]))
 
-Question 47
+or
+
+def points(games):
+    return sum(3 if x > y else 0 if x < y else 1 for x, y in (score.split(":") for score in games))
+    
+print(point(["3:1", "2:2", "0:1"]))
+
+Question 48
 We need a function that can transform a string into a number. What ways of achieving this do you know?
 
 def string_to_number(s):
@@ -596,7 +649,7 @@ def string_to_number(s):
     
 print(string_to_numbers("123"))
 
-Question 48
+Question 49
 Suzuki is a monk who climbs a large staircase to the monastery as part of a ritual. Some days he climbs more stairs than others depending on the number of students he must train in the morning. He is curious how many stairs might be climbed over the next 20 years and has spent a year marking down his daily progress.
 
 The sum of all the stairs logged in a year will be used for estimating the number he might climb in 20.
@@ -629,13 +682,21 @@ def stairs_in_20(stairs):
 
 print(stairs_in_20())
 
-Question 49
+or
+
+def stairs_in_20(stairs):
+    return 20 * sum(n for day in stairs for n in day)
+    
+print(stairs_in_20())
+
+Question 50
 
 def expression_matter(a, b, c):
     return max(a*b*c, a+b+c, (a+b)*c, a*(b+c))
    
 print(expression_matter(1,2,3))
 
+# the max() functions works for a list of numbers, numbers in bracket and even numbers without list or bracket. a = [2, 3, 9, 10], a = (2, 3, 9, 10) and a = 2, 3, 9, 10
 or 
 
 def expression_matter(a, b, c): return max(a*b*c, a+b+c, a*(b+c), (a+b)*c)
