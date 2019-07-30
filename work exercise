@@ -703,3 +703,458 @@ def expression_matter(a, b, c): return max(a*b*c, a+b+c, a*(b+c), (a+b)*c)
 
 print(expression_matter(1,2,3))
 
+Question 51
+def bin_to_decimal(inp):
+    return int(inp, 2)
+    
+print(bin_to_decimal("1011"))
+
+Question 52
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+
+def fake_bin(x):
+    return ''.join('0' if i < '5' else '1' for i in x)
+   
+    
+print(fake_bin())
+
+or
+
+def fake_bin(x):
+    res = ""
+    for num in x:
+        if int(num) < 5:
+            res += "0"
+        else:
+            res += "1"
+    return res
+    
+print(fake_bin())
+
+or
+
+def fake_bin(s):
+  return ''.join('0' if int(c) < 5 else '1' for c in s)
+
+print(fake_bin())
+
+Question 53
+Write a function which takes a number and returns the corresponding ASCII char for that value.
+
+def get_char(c):
+    return chr(c)
+    
+print(get_char(65))
+
+Question 54
+def set_alarm(employed, vacation):
+    return employed and not vacation
+    
+print(set_alarm())
+
+or 
+
+def set_alarm(employed, vacation):
+    if employed and not vacation:
+        return True
+    else:
+        return False
+        
+  print(set_alarm())
+  
+  Question 55
+  Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+  
+ def summation(num):
+   return sum(x for x in range(1, num+1))
+    
+ print(summation(4))
+ 
+ or
+ 
+ def summation(num):
+    return sum(xrange(num + 1))
+    
+ print(summation(4))   
+ 
+ or 
+ 
+ def summation(num):
+    return sum(range(1,num+1))
+    
+ def summation(num):
+   return sum(range(num + 1))
+   
+ print(summation(4)) 
+ 
+ or
+ 
+ def summation(num):
+    result = 0
+    for i in range(1, num + 1):
+        result += i
+    return result
+    
+ print(summation(4))
+  
+  Question 56
+  Given 2 elevators (named "left" and "right") in a building with 3 floors (numbered 0 to 2), write a function elevator accepting 3 arguments (in order):
+
+left - The current floor of the left elevator
+right - The current floor of the right elevator
+call - The floor that called an elevator
+It should return the name of the elevator closest to the called floor ("left"/"right").
+
+In the case where both elevators are equally distant from the called floor, choose the elevator to the right.
+
+You can assume that the inputs will always be valid integers between 0-2.
+
+
+  def elevator(left, right, call):
+    return "left" if abs(call - left) < abs(call - right) else "right"
+    
+  print(elevator())
+    
+  or
+  
+  def elevator(left, right, call):
+    if abs(left-call) >= abs(right-call):
+        return "right"
+    else:
+        return "left"
+        
+  print(elevator())
+  
+  Questions 57
+  Write a function, gooseFilter/goose_filter/GooseFilter, that takes an array of strings as an argument and returns a filtered array containing the same elements but with the 'geese' removed.
+
+The geese are any strings in the following array, which is pre-populated in your solution:
+
+geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+For example, if this array were passed as an argument:
+
+["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+Your function would return the following array:
+
+["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
+
+
+geese = {"African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"}
+
+def goose_filter(birds):
+    return [bird for bird in birds if bird not in geese]
+    
+print(goode_filter())
+
+or
+
+geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+def goose_filter(birds):
+    res = []
+    for bird in birds:
+        if bird not in geese:
+            res.append(bird)
+    return res
+    
+print(goode_filter())
+
+Question 58
+def is_vow(inp):
+    return [chr(num) if chr(num) in "aeiou" else num for num in inp]
+    
+print(is_vow())
+Create a combat function that takes the player's current health and the amount of damage recieved, and returns the player's new health. Health can't be less than 0.
+
+def combat(health, damage):
+    return max(0, health-damage)
+    
+print(combat())
+
+or 
+
+def combat(health, damage):
+    if damage > health:
+        return 0
+    return health - damage
+
+print(combat())
+
+Question 59
+def simple_multiplication(number) :
+    return (number * 8 if number % 2 == 0 else number * 9)
+    
+print(simple_multiplication(6))
+
+Question 60
+Introduction
+The first century spans from the year 1 up to and including the year 100, The second - from the year 101 up to and including the year 200, etc.
+
+Task :
+Given a year, return the century it is in.
+
+def century(year):
+    return (year + 99) // 100
+    
+print(century(1705))
+
+or
+    
+import math
+
+def century(year):
+    return math.ceil(year / 100)
+    
+print(century(1705))
+
+or 
+
+from math import ceil
+
+def century(year):
+    return ceil(year / 100)
+
+print(century(1705))
+
+Question 61
+Given an array of integers, return a new array with each value doubled.
+
+For example:
+
+[1, 2, 3] --> [2, 4, 6]
+
+For the beginner, try to use the map method - it comes in very handy quite a lot so is a good one to know.
+
+def maps(a):
+    return [2 * x for x in a]
+
+print(maps())
+
+def maps(a):
+    return map(lambda w:2*w, a)
+
+print(maps())
+
+Question 62
+Create a function with two arguments that will return a list of length (n) with multiples of (x).
+
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array (or list in Python, Haskell or Elixir).
+
+Examples:
+
+count_by(1,10) #should return [1,2,3,4,5,6,7,8,9,10]
+count_by(2,5) #should return [2,4,6,8,10]
+
+def count_by(x, n):
+    return [i * x for i in range(1, n + 1)]
+    
+print(count_by(2, 7))
+
+Question 63
+Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.
+
+Example
+divisible_by([1, 2, 3, 4, 5, 6], 2) == [2, 4, 6]
+
+def divisible_by(numbers, divisor):
+    return [num for num in numbers if num % divisor == 0]
+
+print(divisible_by([1, 2, 3, 4, 5, 6], 2))
+
+Question 64
+Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+invert([]) == []
+You can assume that all values are integers. Do not mutate the input array/list.
+
+def invert(lst):
+    return [num * -1 for num in lst]
+
+print(invert([1,-2,3,-4,5]))
+
+or
+
+def invert(lst):
+    return [-w for w in lst]
+    
+print(invert([1,-2,3,-4,5]))
+
+or
+
+def invert(l): return [-n for n in l]
+print(invert([1,-2,3,-4,5]))
+
+Question 65
+Write a function that returns the total surface area and volume of a box as an array: [area, volume].
+
+def get_size(w,h,d):
+    return [2*(w*h+w*d+h*d), w*h*d]
+
+print(get_size(2,3,5))
+    
+    or
+    
+def get_size(w, h, d):
+    area = 2*(w*h + h*d + w*d)
+    volume = w*h*d
+return [area, volume]
+
+print(get_size(2,3,5))
+
+Question 66
+In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+
+Example:
+
+make_negative(1);  # return -1
+make_negative(-5); # return -5
+make_negative(0);  # return 0
+
+def make_negative( number ):
+    return -abs(number)
+
+print(make_negative(-5))
+
+    or
+    
+def make_negative( number ):
+    return -number if number>0 else number
+
+print(make_negative(-5))
+
+Question 67
+
+def enough(cap, on, wait):
+    return (0 if cap-on > wait else wait-(cap-on))
+    
+print(enough(100,60,50))
+
+or
+
+def enough(cap, on, wait):
+    return max(0, wait - (cap - on))
+
+print(enough(100,60,50))
+
+Question 68
+You take your son to the forest to see the monkeys. You know that there are a certain number there (n), but your son is too young to just appreciate the full number, he has to start counting them from 1.
+
+As a good parent, you will sit and count with him. Given the number (n), populate an array with all numbers up to and including that number, but excluding zero.
+
+For example, if n = 10:
+
+return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+def monkey_count(n):
+    return [x for x in range(1, n + 1)]
+    
+ print(monkey_count(8))
+ 
+ or
+ 
+def monkey_count(n):
+    return list(range(1,n+1))
+
+print(monkey_count(8))
+
+Question 69
+Create a function finalGrade, which calculates the final grade of a student depending on two parameters: a grade for the exam and a number of completed projects.
+
+This function should take two arguments: exam - grade for exam (from 0 to 100); projects - number of completed projects (from 0 and above);
+
+This function should return a number (final grade). There are four types of final grades:
+
+100, if a grade for the exam is more than 90 or if a number of completed projects more than 10.
+90, if a grade for the exam is more than 75 and if a number of completed projects is minimum 5.
+75, if a grade for the exam is more than 50 and if a number of completed projects is minimum 2.
+0, in other cases
+
+def final_grade(exam, projects):
+    if exam > 90 or projects > 10:
+        return 100
+    elif exam > 75 and projects >= 5:
+        return 90
+    elif exam > 50 and projects >= 2:
+        return 75
+   else:
+        return 0
+
+print(final_grade(90,7))
+
+or
+
+def final_grade(exam, projects):
+  if exam > 90 or  projects > 10: return 100
+  if exam > 75 and projects >= 5: return 90
+  if exam > 50 and projects >= 2: return 75
+  return 0
+  
+print(final_grade(90,7))
+
+Question 70
+In this programming exercise, you're going to learn about functions, boolean (true/false) values, strings, and the if-statement.
+
+A function is a block of code that takes an input and produces an output. In this example, boolean_to_string is a function whose input is either true or false, and whose output is the string representation of the input, either "true"/"True" or "false"/"False" (check the sample tests about what capitalization to use in a given language).
+
+A common idea we often want to represent in code is the concept of true and false. A variable that can either be true or false is called a boolean variable. In this example, the input to boolean_to_string (represented by the variable b) is a boolean.
+
+Lastly, when we want to take one action if a boolean is true, and another if it is false, we use an if-statement.
+
+def boolean_to_string(b):
+    return "True" if b else "False"
+
+print(boolean_to_string())
+
+or
+
+def boolean_to_string(b):
+    if b:
+        return "True"
+    else:
+        return "False"
+        
+print(boolean_to_string())
+
+Question 71
+
+def remove_char(s):
+    return s[1 : -1]
+    
+print(remove_char(Elephan))
+
+Question 72
+You get an array of numbers, return the sum of all of the positives ones.
+
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+Note: if there is nothing to sum, the sum is default to 0.
+
+def positive_sum(arr):
+    return sum(x for x in arr if x > 0)
+    
+print(positive_sum([1,-4,7,12]))
+
+Question 73
+Character recognition software is widely used to digitise printed texts. Thus the texts can be edited, searched and stored on a computer.
+
+When documents (especially pretty old ones written with a typewriter), are digitised character recognition softwares often make mistakes.
+
+Your task is correct the errors in the digitised text. You only have to handle the following mistakes:
+
+S is misinterpreted as 5
+O is misinterpreted as 0
+I is misinterpreted as 1
+The test cases contain numbers only by mistake.
+
+
+def correct(string):
+    return string.translate(str.maketrans("501", "SOI"))
+    
+print(correct())
+
+Question 74
