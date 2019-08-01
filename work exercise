@@ -1383,3 +1383,79 @@ def sum_array(a):
     return sum(x for x in a)
 
 print(sum_array())
+
+Question 84
+Don Drumphet lives in a nice neighborhood, but one of his neighbors has started to let his house go. Don Drumphet wants to build a wall between his house and his neighbor’s, and is trying to get the neighborhood association to pay for it. He begins to solicit his neighbors to petition to get the association to build the wall. Unfortunately for Don Drumphet, he cannot read very well, has a very limited attention span, and can only remember two letters from each of his neighbors’ names. As he collects signatures, he insists that his neighbors keep truncating their names until two letters remain, and he can finally read them.
+
+Your code will show Full name of the neighbor and the truncated version of the name as an array. If the number of the characters in name is equal or less than two, it will return an array containing only the name as is"
+
+
+def who_is_paying(name):
+    return [name, name[:2]] if len(name) > 2 else [name]
+
+print(who_is_paying(Melissa))
+
+or 
+
+who_is_paying = lambda n: [n, n[:2]] if len(n)>2 else [n]
+
+print(who_is_paying(Melissa))
+
+or
+
+def who_is_paying(name):
+    if len(name) > 2:
+        return [name, name[0:2]]
+    else:
+        return [name[0:len(name)]]
+
+print(who_is_paying(Melissa))
+
+Question 85
+Very simple, given a number, find its opposite.
+
+Examples:
+
+1: -1
+14: -14
+-34: 34
+
+
+def opposite(number):
+  return -number
+  
+print(opposite(7))
+
+Question 86
+Make a simple function called greet that returns the most-famous "hello world!".
+
+def greet():
+    return "hello world!"
+
+print(greet("hello world!"))
+
+Question 87
+
+def warn_the_sheep(queue):
+  return 'Pls go away and stop eating my sheep' if queue[-1] == 'wolf' else f'Oi! Sheep number {queue[::-1].index("wolf")}! You are about to be eaten by a wolf!'
+
+print(warn_the_sheep())
+
+or
+
+def warn_the_sheep(queue):
+    i = queue[::-1].index('wolf')
+    if i == 0:
+        return 'Pls go away and stop eating my sheep'
+    return f'Oi! Sheep number {i}! You are about to be eaten by a wolf!'
+    
+print(warn_the_sheep())
+
+Question 88
+Create a function isDivisible(n, x, y) that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero digits.
+
+
+def is_divisible(n,x,y):
+    return n % x == 0 and n % y == 0
+    
+print(is_divisible(3,1,3))
