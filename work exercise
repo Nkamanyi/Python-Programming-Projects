@@ -1924,3 +1924,365 @@ def array(strng):
     return ' '.join(strng.split(',')[1:-1]) or None
     
 print(array())
+
+question 111
+This series of katas will introduce you to basics of doing geometry with computers.
+
+Point objects have x and y attributes (X and Y in C#) attributes.
+
+Write a function calculating distance between Point a and Point b.
+
+Tests round answers to 6 decimal places.
+
+
+def distance_between_points(a, b):
+
+    return ((b.x - a.x) ** 2 + (b.y - a.y) ** 2) ** 0.5
+
+print(distance_between_points(2,9))
+
+or
+
+import math
+
+
+def distance_between_points(a, b):
+    return math.sqrt((a.x - b.x)**2 + (a.y - b.y)**2)
+    
+print(distance_between_points(2,9))
+
+or
+
+from math import hypot
+
+def distance_between_points(a, b):
+    return hypot(a.x - b.x, a.y - b.y)
+    
+print(distance_between_points(2,9))
+
+Question 112
+This is the first step to understanding FizzBuzz.
+
+Your inputs: a positive integer, n, greater than or equal to one. n is provided, you have NO CONTROL over its value.
+
+Your expected outputs: an array of positive integers from 1 to n
+
+Your job is to write an algorithm that gets you from the input to the output.
+
+
+def pre_fizz(n):
+    return list(range(1,n+1))
+
+print(pre_fizz(8))
+
+or
+
+def pre_fizz(n):
+    return [x for x in range(1, n+1)]
+    
+print(pre_fizz(8))
+
+Question 113
+In this kata, we will make a function to test whether a period is late.
+
+Our function will take three parameters:
+
+last - The Date object with the date of the last period
+
+today - The Date object with the date of the check
+
+cycleLength - Integer representing the length of the cycle in days
+
+If the today is later from last than the cycleLength, the function should return true. We consider it to be late if the number of passed days is larger than the cycleLength. Otherwise return false.
+
+
+def period_is_late(last, today, cycle_length):
+    return (today - last).days > cycle_length
+    
+print(period_is_late())
+
+or
+
+def period_is_late(last,today,cycle_length):
+    change = today - last
+    if change.days > cycle_length:
+        return True
+    else:
+        return False
+
+print(period_is_late())
+
+Question 114
+Basic regex tasks. Write a function that takes in a numeric code of any length. The function should check if the code begins with 1, 2, or 3 and return true if so. Return false otherwise.
+
+You can assume the input will always be a number.
+
+
+def validate_code(code):
+    return str(code).startswith(('1', '2', '3'))
+    
+print(validate_code())
+
+or
+
+def validate_code(code):
+    return str(code)[0] in '123'
+
+print(validate_code())
+
+or
+
+def validate_code(code):
+    return int(str(code)[0]) < 4
+    
+print(validate_code())
+
+Question 115
+Kids drink toddy.
+Teens drink coke.
+Young adults drink beer.
+Adults drink whisky.
+Make a function that receive age, and return what they drink.
+
+Rules:
+
+Children under 14 old.
+Teens under 18 old.
+Young under 21 old.
+Adults have 21 or more.
+Examples:
+
+people_with_age_drink(13) == "drink toddy"
+people_with_age_drink(17) == "drink coke"
+people_with_age_drink(18) == "drink beer"
+people_with_age_drink(20) == "drink beer"
+people_with_age_drink(30) == "drink whisky"
+
+
+def people_with_age_drink(age):
+    if age > 20: return 'drink whisky'
+    if age > 17: return 'drink beer'
+    if age > 13: return 'drink coke'
+    return 'drink toddy'
+    
+print(people_with_age_drink(19))
+
+or
+
+def people_with_age_drink(age):
+    return 'drink ' + ('toddy' if age < 14 else 'coke' if age < 18 else 'beer' if age < 21 else 'whisky')
+
+print(people_with_age_drink(19))
+
+or
+
+def people_with_age_drink(age):
+    if age <= 13:
+        beverage = 'toddy'
+    elif age > 13 and age <= 17:
+        beverage = 'coke'
+    elif age > 17 and age <= 20:
+        beverage = 'beer'
+    elif age > 20:
+        beverage = 'whisky'
+    return 'drink ' + beverage
+
+print(people_with_age_drink(19))
+
+Question 116
+Some new animals have arrived at the zoo. The zoo keeper is concerned that perhaps the animals do not have the right tails. To help her, you must correct the broken function to make sure that the second argument (tail), is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+
+If the tail is right return true, else return false.
+
+The arguments will always be strings, and normal letters.
+
+For Haskell, more specifically, body has the type of String and tail has the type of Char.
+
+
+def correct_tail(body, tail):
+    return body[-1] == tail
+    
+print(correct_tail())
+
+or
+
+def correct_tail(body, tail):
+    return body.endswith(tail)
+    
+print(correct_tail())
+
+Question 117
+Remove all exclamation marks from the end of sentence.
+
+Examples
+remove("Hi!") === "Hi"
+remove("Hi!!!") === "Hi"
+remove("!Hi") === "!Hi"
+remove("!Hi!") === "!Hi"
+remove("Hi! Hi!") === "Hi! Hi"
+remove("Hi") === "Hi
+
+
+def remove(s):
+    return s.rstrip("!")
+
+print(remove("hello!!!"))
+
+Question 118
+Write a function that returns a string in which firstname is swapped with last name.
+
+name_shuffler('john McClane'); => "McClane john"
+
+
+def name_shuffler(str_):
+    return " ".join(str_.split()[::-1])
+    
+print(name_shuffler("john McClane"))
+
+or
+
+def name_shuffler(s):
+    return ' '.join(reversed(s.split()))
+    
+print(name_shuffler("john McClane"))
+
+Question 119
+Create a function close_compare that accepts 3 parameters: a, b, and margin. The function should return whether a is lower than, close to, or higher than b. a is "close to" b if margin is higher than or equal to the difference between a and b.
+
+When a is lower than b, return -1.
+
+When a is higher than b, return 1.
+
+When a is close to b, return 0.
+
+If margin is not given, treat it as zero.
+
+Example: if a = 3, b = 5 and the margin = 3, since a and b are no more than 3 apart, close_compare should return 0. Otherwise, if instead margin = 0, a is lower than b and close_compare should return -1.
+
+Assume: margin >= 0
+
+
+def close_compare(a, b, margin = 0):
+    return 0 if abs(a - b) <= margin else -1 if b > a else 1
+    
+print(close_compare())
+
+Question 120
+Create a method that accepts a list and an item, and returns true if the item belongs to the list, otherwise false.
+
+
+def include(arr,item):
+    return item in arr
+    
+print(include())
+
+Question 121
+Given two integer arrays a, b, both of length >= 1, create a program that returns true if the sum of the squares of each element in a is strictly greater than the sum of the cubes of each element in b.
+
+E.g.
+
+array_madness([4, 5, 6], [1, 2, 3]) => True #because 4 ** 2 + 5 ** 2 + 6 ** 2 > 1 ** 3 + 2 ** 3 + 3 ** 3
+Get your timer out. Are you ready? Ready, get set, GO!!!
+
+
+def array_madness(a,b):
+    return sum(x ** 2 for x in a) > sum(x **3 for x in b)
+    
+print(array_madness([4, 5, 6], [1, 2, 3]))
+
+Question 122
+You're running an online business and a big part of your day is fulfilling orders. As your volume picks up that's been taking more of your time, and unfortunately lately you've been running into situations where you take an order but can't fulfill it.
+
+You've decided to write a function fillable() that takes three arguments: a dictionary stock representing all the merchandise you have in stock, a string merch representing the thing your customer wants to buy, and an integer n representing the number of units of merch they would like to buy. Your function should return True if you have the merchandise in stock to complete the sale, otherwise it should return False.
+
+Valid data will always be passed in and n will always be >= 1.
+
+
+def fillable(stock, merch, n):
+  return stock.get(merch, 0) >= n
+
+print(fillable())
+
+or
+
+def fillable(stock, merch, n):
+    return merch in stock and stock[merch] >= n
+    
+print(fillable())
+
+Question 123
+Simple challenge - eliminate all bugs from the supplied code so that the code runs and outputs the expected value. Output should be the length of the longest word, as a number.
+
+There will only be one 'longest' word.
+
+
+def find_longest(strng):
+    return max(len(a) for a in strng.split())
+    
+print(find_longest())
+
+Question 124
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+
+Return True if yes, False otherwise :)
+
+
+def hero(bullets, dragons):
+    return bullets / 2 >= dragons
+
+print(hero())
+
+Question 125
+Remove a exclamation mark from the end of string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+
+Examples
+remove("Hi!") === "Hi"
+remove("Hi!!!") === "Hi!!"
+remove("!Hi") === "!Hi"
+remove("!Hi!") === "!Hi"
+remove("Hi! Hi!") === "Hi! Hi"
+remove("Hi") === "Hi"
+
+
+def remove(s):
+    return s[:-1] if s.endswith('!') else s
+    
+print(remove())
+
+Question 126
+You were camping with your friends far away from home, but when it's time to go back, you realize that you fuel is running out and the nearest pump is 50 miles away! You know that on average, your car runs on about 25 miles per gallon. There are 2 gallons left. Considering these factors, write a function that tells you if it is possible to get to the pump or not. Function should return true if it is possible and false if not.
+
+
+def zeroFuel(distance_to_pump, mpg, fuel_left):
+    return distance_to_pump <= mpg * fuel_left
+    
+print(zeroFuel())
+
+Question 127
+I'm new to coding and now I want to get the sum of two arrays...actually the sum of all their elements. I'll appreciate for your help.
+
+P.S. Each array includes only integer numbers. Output is a number too.
+
+
+def array_plus_array(arr1,arr2):
+    return sum(arr1) + sum(arr2)
+    
+print(array_plus_array())
+
+or
+
+def array_plus_array(arr1,arr2):
+    return sum(arr1+arr2)
+
+print(array_plus_array())
+
+Question 128
+Who likes keywords? Nobody likes keywords, so why use them?
+
+You know what keyword I use too much? if! We should make a function called _if, with its arguments as a logical test and two functions/lambdas where the first function is executed if the boolean is true, and the second if it's false, like an if/else statement, so that we don't have to mess around with those nasty keywords! Even so, It should support truthy/falsy types just like the keyword.
+
+
+def _if(bool, func1, func2):
+    return func1() if bool else func2()
+
+print(_if())
