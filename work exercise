@@ -2286,3 +2286,528 @@ def _if(bool, func1, func2):
     return func1() if bool else func2()
 
 print(_if())
+
+Question 129
+You are a leader of a small pirate crew. And you have a plan. With the help of OOP you wish to make a pretty efficient system to identify ships with a heavy booty on board.
+
+Unfortunattely for you, people weigh a lot this days, so how do you know if a ship if full of gold and not people?
+
+You begin with writing a generic Ship class:
+
+class Ship:
+    def __init__(self, draft, crew):
+        self.draft = draft
+        self.crew = crew
+Every time your spies see a new ship enter the dock, they will create a new ship object based on their observations:
+
+draft - an estimate of the ship's weight based on how low it is in the water
+crew - the count of crew on board
+Titanic = Ship(15, 10)
+Taking into account that an average crew member on board adds 1.5 units to the draft, a ship that has a draft of more than 20 without crew is considered worthy to loot. Any ship weighing that much must have a lot of booty!
+
+Add the method
+
+is_worth_it
+to decide if the ship is worthy to loot. For example:
+
+Titanic.is_worth_it()
+False
+This Kata teaches you the very basic of method creation.
+
+Good luck!
+
+
+class Ship:
+    def __init__(self, draft, crew):
+        self.draft = draft
+        self.crew = crew
+    # Your code here
+    def is_worth_it(self):
+        return self.draft - self.crew * 1.5 > 20
+        
+    print(is_worthy())
+    
+Question 130
+You're re-designing a blog and the blog's posts have the following format for showing the date and time a post was made:
+
+Weekday Month Day, time e.g., Friday May 2, 7pm
+
+You're running out of screen real estate, and on some pages you want to display a shorter format, Weekday Month Day that omits the time.
+
+Write a function, shortenToDate, that takes the Website date/time in its original string format, and returns the shortened format.
+
+Assume shortenToDate's input will always be a string, e.g. "Friday May 2, 7pm". Assume shortenToDate's output will be the shortened string, e.g., "Friday May 2".
+
+
+def shorten_to_date(long_date):
+    return long_date.split(',')[0]
+    
+print(shorten_to_date())
+
+Question 131
+Write a function that always returns 5
+
+Sounds easy right? Just bear in mind that you can't use any of the following characters: 0123456789*+-/
+
+Good luck :)
+
+
+def unusual_five():
+    return len("five!")
+    
+print(unusual_five())
+    
+Question 132
+Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on the inside. The strings will not be the same length, but they may be empty ( length 0 ).
+
+For example:
+
+solution("1", "22") # returns "1221"
+solution("22", "1") # returns "1221"
+
+def solution(a, b):
+    return a+b+a if len(a)<len(b) else b+a+b
+
+print(solution())
+
+Question 133
+Given a string s, write a method (function) that will return true if its a valid single integer or floating number or false if its not.
+
+Valid examples, should return true:
+
+isDigit("3")
+isDigit("  3  ")
+isDigit("-3.23")
+should return false:
+
+isDigit("3-4")
+isDigit("  3   5")
+isDigit("3 5")
+isDigit("zero")
+
+
+def isDigit(string):
+    try:
+        float(string)
+        return True
+    except:
+        return False
+        
+ print(isDigit())
+ 
+ Question 134
+ Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+ 
+ 
+ def bool_to_word(bool):
+    return "Yes" if bool else "No"
+    
+ print(bool_to_word())
+ 
+ Question 135
+ Your task is to create functionisDivideBy (or is_divide_by) to check if an integer number is divisible by each out of two arguments.
+
+A few cases:
+
+
+(-12, 2, -6)  ->  true
+(-12, 2, -5)  ->  false
+
+(45, 1, 6)    ->  false
+(45, 5, 15)   ->  true
+
+(4, 1, 4)     ->  true
+(15, -5, 3)   ->  true
+
+
+ def is_divide_by(number, a, b):
+    return number % a == 0 and number % b == 0
+    
+ print(is_divide_by())
+ 
+ Question 136
+ Write function bmi that calculates body mass index (bmi = weight / height ^ 2).
+
+if bmi <= 18.5 return "Underweight"
+
+if bmi <= 25.0 return "Normal"
+
+if bmi <= 30.0 return "Overweight"
+
+if bmi > 30 return "Obese"
+ 
+ 
+ def bmi(weight, height):
+    bmi = weight / height ** 2
+    if bmi <= 18.5:
+        return "Underweight"
+    elif bmi <= 25:
+        return "Normal"
+    elif bmi <= 30:
+        return "Overweight"
+    else:
+        return "Obese"
+        
+prin(bmi())
+
+Question 137
+Americans are odd people: in their buildings, the first floor is actually the ground floor and there is no 13th floor ('cause of superstition).
+
+Write a function that given an American floor (passed as an integer) returns the real floor.
+Moreover, your function should work for basement floors too: just return the same value as the passed one.
+
+Usage Examples
+get_real_floor(1) == 0 
+get_real_floor(0) == 0 # Special case to please Europeans
+get_real_floor(5) == 4
+get_real_floor(15) == 13
+get_real_floor(-3) == -3
+
+
+def get_real_floor(n):
+    if n <= 0: return n
+    if n < 13: return n-1
+    if n > 13: return n-2
+    
+print(get_real_floor(6))
+
+Question 138
+This series of katas will introduce you to basics of doing geometry with computers.
+
+Write the function circleArea/CircleArea which takes in a Circle object and calculates the area of that circle.
+The Circle class can be seen below:
+
+// Represents a Circle where center is a Point and radius is a Number
+class Circle {
+  constructor(center, radius) { 
+    this.center = center; 
+    this.radius = radius;
+  }
+}
+And the Point class can be seen below:
+
+// Represents a Point where x and y are Numbers
+class Point {
+  constructor (x,y) { 
+    this.x = x;
+    this.y = y; 
+  }
+}
+Tests round answers to 6 decimal places.
+
+
+from math import pi
+def circle_area(circle):
+    return round(pi * circle.radius ** 2, 6)
+    
+print(circle_area())    
+
+Question 139
+Make multiple functions that will return the sum, difference, modulus, product, quotient, and the exponent respectively.
+
+Please use the following function names:
+
+addition = add
+
+multiply = multiply
+
+division = divide (both integer and float divisions are accepted)
+
+modulus = mod
+
+exponential = exponent
+
+subtraction = subt
+
+
+add = lambda a, b: a + b
+multiply = lambda a, b: a * b
+divide = lambda a, b: a / b
+mod = lambda a, b: a % b
+exponent = lambda a, b: a ** b
+subt = lambda a, b:a - b
+
+Question 140
+Two players - "black" and "white" are playing a game. The game consists of several rounds. If a player wins in a round, he is to move again during the next round. If a player loses a round, it's the other player who moves on the next round. Given whose turn it was on the previous round and whether he won, determine whose turn it is on the next round.
+
+Input/Output
+[input] string lastPlayer/$last_player
+
+"black" or "white" - whose move it was during the previous round.
+
+[input] boolean win/$win
+
+true if the player who made a move during the previous round won, false otherwise.
+
+[output] a string
+
+Return "white" if white is to move on the next round, and "black" otherwise.
+
+Example
+For lastPlayer = "black" and win = false, the output should be "white".
+
+For lastPlayer = "white" and win = true, the output should be "white"
+
+
+def whoseMove(lastPlayer, win):
+    return lastPlayer if win else 'white' if lastPlayer == 'black' else 'black'
+    
+print(whosemove())
+
+Question 141
+Write a function that rearranges an integer into its largest possible value.
+
+super_size(123456) # 654321
+super_size(105)    # 510
+super_size(12)     # 21
+If the argument passed through is single digit or is already the maximum possible integer, your function should simply return it.
+
+
+def super_size(n):
+    return int(''.join(sorted(str(n)))[::-1])
+    
+print(super_size(1234567))
+
+Question 142
+Your boss decided to save money by purchasing some cut-rate optical character recognition software for scanning in the text of old novels to your database. At first it seems to capture words okay, but you quickly notice that it throws in a lot of numbers at random places in the text. For example:
+
+string_clean('! !') == '! !'
+string_clean('123456789') == ''
+string_clean('This looks5 grea8t!') == 'This looks great!'
+Your harried co-workers are looking to you for a solution to take this garbled text and remove all of the numbers. Your program will take in a string and clean out all numeric characters, and return a string with spacing and special characters ~#$%^&!@*():;"'.,? all intact.
+
+
+def string_clean(s):
+    return ''.join(x for x in s if not x.isdigit())
+    
+print(string_clean())
+
+Question 143
+#To square(root) or not to square(root)
+
+Write a method, that will get an integer array as parameter and will process every number from this array.
+Return a new array with processing every number of the input-array like this:
+
+If the number has an integer square root, take this, otherwise square the number.
+
+[4,3,9,7,2,1] -> [2,9,3,49,4,1]
+The input array will always contain only positive numbers and will never be empty or null.
+
+The input array should not be modified!
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have also created other katas. Take a look if you enjoyed this kata!
+
+
+def square_or_square_root(arr):
+    result = []
+    for x in arr:
+        root = x**0.5
+        if root.is_integer():
+            result.append(root)
+        else:
+            result.append(x*x)
+    return result
+
+print(square_or_square_roo())
+    
+    or
+    
+    from math import sqrt
+
+def square_or_square_root(arr):
+    return [int(sqrt(a)) if sqrt(a) % 1 == 0 else a ** 2 for a in arr]
+    
+print(square_or_square_roo())
+
+Question 144
+Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+
+
+def lovefunc( flower1, flower2 ):
+    return (flower1+flower2)%2
+    
+print(lovefunc(1,4))
+
+Question 145
+Combine strings function
+Create a function named combineNames(combine_names in python, ruby) that accepts two parameters (first and last name). The function should return the full name.
+
+Example:
+
+combine_names('James', 'Stevens')
+returns:
+
+'James Stevens'
+
+
+def combine_names(first, last):
+    return first + " " + last
+    
+print(combine_names(John,Mark))
+
+Question 146
+HELP! Jason can't find his textbook! It is two days before the test date, and Jason's textbooks are all out of order! Help him sort a list (ArrayList in java) full of textbooks by subject, so he can study before the test.
+
+The sorting should NOT be case sensitive
+
+
+def sorter(textbooks):
+    return sorted(textbooks,key=str.lower)
+    
+print(sorter())
+
+Question 147
+When provided with a number between 0-9, return it in words.
+
+Input :: 1
+
+Output :: "One".
+
+Try using "Switch" statements.
+
+
+def switch_it_up(n):
+    return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine'][n]
+    
+print(switch_it(5))
+
+Question 148
+While making a game, your partner, Greg, decided to create a function to check if the user is still alive called checkAlive/CheckAlive. Unfortunately, Greg made some errors while creating the function.
+
+checkAlive/CheckAlive should return true if the player's health is greater than 0 or false if it is 0 or below.
+
+checkAlive receives one parameter health which will always be a whole number between -10 and 10.
+
+
+def checkAlive(health):
+    return health > 0
+    
+print(checkAlive(4))
+
+Question 149
+We need a simple function that determines if a plural is needed or not. It should take a number, and return true if a plural should be used with that number or false if not. This would be useful when printing out a string such as 5 minutes, 14 apples, or 1 sun.
+
+You only need to worry about english grammar rules for this kata, where anything that isn't singular (one of something), it is plural (not one of something).
+
+All values will be positive integers or floats, or zero.
+
+
+def plural(n):
+    return n != 1
+    
+print(plural(5))
+
+Question 150
+Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+
+Use conditionals to return the proper message:
+
+======= case | return --- | --- name equals owner | 'Hello boss' otherwise | 'Hello guest'
+
+
+def greet(name, owner):
+    return "Hello boss" if name == owner else "Hello guest"
+    
+print(greet('Daniel', 'Daniel'))
+
+Question 151
+Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n (inclusive).
+
+Examples
+n = 0  ==> [1]        # [2^0]
+n = 1  ==> [1, 2]     # [2^0, 2^1]
+n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
+
+def powers_of_two(n):
+    return [2**x for x in range(n+1)]
+    
+print(powers_of_two(6))
+
+Question 152
+Convert number to reversed array of digits
+Given a random number:
+
+C#: long;
+C++: unsigned long;
+You have to return the digits of this number within an array in reverse order.
+
+Example:
+348597 => [7,9,5,8,4,3]
+
+
+def digitize(n):
+    return [int(x) for x in str(n)[::-1]]
+    
+print(digitize([7,9,5,8,4,3]))
+
+Question 153
+You have to write a function that describe Leo:
+
+def leo(oscar):
+  pass
+if oscar was (integer) 88, you have to return "Leo finally won the oscar! Leo is happy".
+if oscar was 86, you have to return "Not even for Wolf of wallstreet?!"
+if it was not 88 or 86 (and below 88) you should return "When will you give Leo an Oscar?"
+if it was over 88 you should return "Leo got one already!"
+
+
+def leo(oscar):
+    if oscar == 88:
+            return "Leo finally won the oscar! Leo is happy"
+    elif oscar == 86:
+            return "Not even for Wolf of wallstreet?!"
+    elif oscar < 88:
+            return "When will you give Leo an Oscar?"
+    elif oscar > 88:
+            return "Leo got one already!"
+            
+ print(leo(88))
+ 
+ Question 154
+ When it's spring Japanese cherries blossom, it's called "sakura" and it's admired a lot. The petals start to fall in late April.
+
+Suppose that the falling speed of a petal is 5 centimeters per second (5 cm/s), and it takes 80 seconds for the petal to reach the ground from a certain branch.
+
+Write a function that receives the speed (in cm/s) of a petal as input, and returns the time it takes for that petal to reach the ground from the same branch.
+
+Notes:
+
+The movement of the petal is quite compilcated, so in this case we can see the velocity as a constant during its falling.
+Pay attention to the data types.
+If the initial velocity is non-positive, the return value should be 0
+
+
+def SakuraFall(v):
+    return 400/v if v > 0 else 0
+    
+print(sakuraFall())
+
+Question 155
+Given an array of integers your solution should find the smallest integer.
+
+For example:
+
+Given [34, 15, 88, 2] your solution will return 2
+Given [34, -345, -1, 100] your solution will return -345
+You can assume, for the purpose of this kata, that the supplied array will not be empty.
+
+
+def findSmallestInt(arr):
+    return min(arr)
+    
+print(findSmallestint([34, -345, -1, 100]))
+
+Question 156
+Write a function called repeatString which repeats the given String src exactly count times.
+
+repeatStr(6, "I") // "IIIIII"
+repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
+
+def repeat_str(repeat, string):
+    return repeat * string
+    
+print(repeat_str(6, "hello"))
